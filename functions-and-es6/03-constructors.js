@@ -1,5 +1,3 @@
-// 3
-
 // Pre es6, you would use functions as constructors for prototypes and for
 // performing operations
 //

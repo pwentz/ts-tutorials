@@ -1,6 +1,4 @@
 'use strict';
-// 6
-
 // Unlike function expressions, the context ("this") in arrow functions get assigned on declaration:
 //   - arrow functions DO NOT have their own "this"
 //   - will take the lexical "enclosing" scope of the context it is defined in

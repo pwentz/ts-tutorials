@@ -1,6 +1,4 @@
 "use strict";
-// 1
-
 // let
 //  - just like "var", except variable is block-scoped
 function varVsLet() {
@@ -8,8 +6,8 @@ function varVsLet() {
     var x = 'wow'
     let y = 'wow'
   }
-  console.log(x) // 'wow'
-  // console.log(y) // 'hi'
+  console.log(x)
+  // console.log(y)
 }
 varVsLet()
 

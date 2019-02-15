@@ -1,6 +1,4 @@
 'use strict';
-// 5
-//
 // Function expressions have their "this" value set at the point of invocation:
 //  -- each function has its own "this"
 //  -- when called as an object method, it will take the "this" of the object it is called on

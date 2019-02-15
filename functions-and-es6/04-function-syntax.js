@@ -1,5 +1,3 @@
-// 4
-//
 // There are NAMED functions and ANONYMOUS functions
 //
 // similar to Ruby where "blocks" are just anonymous functions

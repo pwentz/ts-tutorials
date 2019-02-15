@@ -1,5 +1,3 @@
-// 2
-
 // In JS (as in Ruby), functions are "first-class citizens"
 //    -- can be saved as a variable
 //    -- can be returned from a function
