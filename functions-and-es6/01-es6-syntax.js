@@ -1,4 +1,5 @@
 "use strict";
+
 // let
 //  - just like "var", except variable is block-scoped
 function varVsLet() {
@@ -6,10 +7,12 @@ function varVsLet() {
     var x = 'wow'
     let y = 'wow'
   }
-  console.log(x)
+  // console.log(x)
   // console.log(y)
 }
 varVsLet()
+
+
 
 // const
 //   - unable to be reassigned
@@ -24,8 +27,8 @@ try {
 x.reverse()
 console.log(x)
 
-// ---------------------- rule of thumb ----------------------
-//    get used to using const as much as possible
+// // ---------------------- rule of thumb ----------------------
+// //    get used to using const as much as possible
 
 
 
@@ -60,12 +63,15 @@ logRest('a', 'b', 'c', 'd')
 function logArgs(...args) { console.log(`Args: ${args}`) }
 logArgs('a', 'b', 'c', 'd')
 
+
+
+
 console.log('------------ spread operator ------------')
 console.log('------------ arrays ------------')
 // opposite of rest params: spread elements of an iterable collection into both literal
 // elements and function parameters
 //    - doesn't have to be last arg
-const abcd = ['a', 'b', 'c', 'd']
+const abcd = ['a', 'b', 'c', 'd', 'hi']
 // into fn params
 console.log(...abcd, 'e', 'f')
 console.log(abcd, 'e', 'f')
@@ -78,13 +84,18 @@ console.log([0, ...myList])
 console.log([...myList, 4])
 
 // concat two lists
-const myOtherList = [4, 5, 6]
+const myOtherList = [4, 5, ...[6, 7]]
 console.log([...myList, ...myOtherList])
+
+
+
+
 
 console.log('------------ object literals ------------')
 // updating object
 const myObj = { a: 1, b: 2, c: 3 }
-console.log({ ...myObj, d: 4 })
+const otherObj = { e: 9 }
+console.log({ ...myObj, d: 4, ...otherObj })
 
 // can use variable name for short-hand syntax
 const d = 4
@@ -131,9 +142,12 @@ console.log(val)
 console.log(vals)
 
 
+
+
 console.log('------------ object literals ------------')
 // keys become variable names
-const someObj = { hi: 'wow', neat: 'cool', rad: { fun: 'swell' } }
+console.log(someObj)
+var someObj = { hi: 'wow', neat: 'cool', rad: { fun: 'swell' } }
 const { hi, neat, ...restObj } = someObj
 console.log(hi)
 console.log(neat)

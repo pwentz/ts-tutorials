@@ -11,6 +11,10 @@ Person.prototype.salutations = function() {
   return "Hi my name is " + this.name + " and I am " + this.age + " years old!"
 }
 
+
+
+
+
 // es6 classes (just syntactic sugar)
 class Human {
   constructor(name, age) {

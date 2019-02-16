@@ -10,8 +10,6 @@ try {
 } catch (e) {
   console.log("ERROR: ", e.message) // minusOne is not a function
 }
-// it knows what minusOne is, so it INITIALIZES the variable minusOne, but does not ASSIGN
-// it until like 8
 
 // named
 function addOne(x) {
@@ -37,6 +35,14 @@ function logFn(fn) { console.log(fn()) }
 // passing as arg
 logFn(function() { return "I'm convenient!" })
 
+
+
+
+
+
+
+
+
 console.log('------------ arrow functions ------------')
 //
 // Introduced in ES2016, used for anonymous functions
@@ -45,15 +51,20 @@ console.log('------------ arrow functions ------------')
 var noop =        function() {}
 const arrowNoop = () => {}
 
+
+
+
+
 // with arrow functions, we can omit the curly braces AND return statement
 // if our function is a single expression
 logFn(() => "I'm very convenient!")
-// however if our "expression" is an object literal, then we need to wrap in parens
-//  -- think of this as how in Ruby you have to use parens when passing a hash literal
 //
 // also, if we only have a single argument to the fn, we can even omit the parens around
 // the arguments
 const plusOne = x => x + 1
+
+
+
 
 // this makes things like currying convenient
 const curry = fn => x => y => fn(x, y)
@@ -74,5 +85,4 @@ console.log(
 )
 
 // ---------------------- rule of thumb ----------------------
-//    - `let` instead of `var`
 //    - `const` instead of `function`

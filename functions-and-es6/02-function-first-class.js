@@ -3,7 +3,6 @@
 //    -- can be returned from a function
 //    -- can be passed into a function
 //    -- can be stored in a list
-//
 
 // But they work a bit different than Ruby. Instead of having to worry
 // about procs vs lambdas vs methods, JS just has functions.

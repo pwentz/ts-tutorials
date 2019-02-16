@@ -9,13 +9,17 @@ let example = {
 
 function Example() {
   this.prop = 31
-  this.func = () => this.prop
+  // this.func = () => this.prop
 }
+Example.prototype.func = () => this.prop
+
 
 // the enclosing scope of the "example" declaration is the global context, so
 // the following returns undefined (global object in non-strict mode)
 console.log(example.func())
 console.log(new Example().func())
+
+
 
 
 // ---------------------------------------------------------------------------------
