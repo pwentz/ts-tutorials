@@ -1,0 +1,111 @@
+# Intro to TS
+
+- typescript is just a compiler that takes a certain syntax (TS) and compiles into JS
+- tsconfig.json
+  - configuration options for compiler
+  - module option is important because that is what module you compile to
+- tangent on modules
+  - if you remember writing js back in the day, it gets complicated because there wasn't
+    this idea of file-based "modules" and developers had to use IIFEs to achieve proper scoping
+  - since then, JS has come out with a standard of modules called CommonJS
+    - if you've ever seen `require` or `module.exports`, that is CommonJS
+    - node has CommonJS out of the box!
+    - however browsers do NOT support CommonJS because it will load modules synchronously, which
+      blocks the event loop on browsers (freezes ui)
+      - so how do we write frontend code with modules?
+        - webpack!
+        - webpack takes all of your CommonJS modules and transpiles them into a single `bundle.dist` file
+          that the browser consumes.
+        - webpack-dev-server will transpile your modules and serve it to the browser, which is helpful when developing
+          as it can watch for changes in our files and re-serve them to the browser.
+  - new standard called "es modules" that is supported by browsers and has async file loading
+    - `import`/`export` syntax
+    - modules must be served up by a server
+      - more convenient for us to use webpack-dev-server
+      - still use the `import`/`export` syntax in our TS code
+- ambient declaration
+  - big strength of typescript is the ability to retrofit types onto existing js libraries
+  - some come with [type declaration files](https://github.com/reduxjs/redux/blob/master/index.d.ts)
+  - for others, there is DefinitelyTyped
+    - provides type declarations for popular JS libraries
+    - we import/reference the type file in typescript
+      - `reducers/index` example
+      - type declarations for packages act as documentation
+      - concrete values are also declared in types file so we can reference them in TS
+        - ag-grid-react class export
+- types
+  - not many primitive types in JS since nearly everything is an object
+  - BUILT IN
+    - any
+      - tells compiler not to type-check
+      - "this value is safe, I know what type this is"
+    - unknown
+      - opposite of "any"
+      - must assert value to a certain type 
+      - "this value is not safe, I do not know what type this is"
+    - number
+    - string
+    - boolean
+    - string, object, boolean, & function literal types
+    - `Array<TYPE>` or `TYPE[]` for arrays
+    - AVOID: Object, Function, any capitalized type name aside from Array
+  - FUNCTIONS
+    - for arrow functions we would simply annotate the argument and return
+  - INTERFACES
+    - open-ended in TS, we can extend interfaces by simply re-declaring them
+    - can be implemented by a class or to annotate a simple pojo 
+    - classes can inherit from other classes in JS using `extends`
+      - interfaces can inherit from other interfaces using same keyword
+    - callable
+      - useful for overloading functions with different annotations
+      - if using an interface for a function, better to use a type
+    - newable
+      - similar to callable, just with new prefix
+      - used for specifying instance types for a particular constructor
+  - TYPE
+    - provides simple type alias
+  - PROPERTY TYPES
+    - OPTIONAL
+      - properties on an object and arguments to a function can be marked as optional by appending a `?` to the var name
+    - READONLY
+  - INDEX TYPE
+    - when defining an interface or type alias for objects, it allows you to access
+      these properties via dot-notation
+    - index types allow you to use square-bracket notation to get the value you need
+      - this is common when you need to access an object but you don't know the name of the key at compile-time
+      - values accessed from index type 
+    - you can make an existing interface or type an index type, but the value type of the index must be the
+      same as the declared properties (i.e. TS wants homogenous index types)
+  - null vs undefined
+    - javascript has both `null` and `undefined` values in the language and both are used for different purposes
+    - we ALWAYS want to use `undefined` over `null`
+    - however we seldom want to explicitly reference `undefined` as a type
+      - use optional syntax for properties/args
+      - use `void` to denote `undefined` as a return value
+  - type assertion
+    - can use `as` to tell TS that this type should be this other type
+    - not "casting" because TS imposes limitations on what can be asserted (i.e. cannot convert string to number)
+    - in order to cast, you have to assert as "unknown" or "any" first
+  - type guards
+    - TS can provide convenient type inference for null-checking
+      - if you null-check an optional value, you can then reference it (in same scope) as non-optional
+    - can also use custom type-guards to assert that a value is of a certain type
+      - typeof (typeof w/ variable argument returns a type declaration)
+      - instanceof
+  - enums
+    - similar to enums in C#/Java
+    - cannot think of a good use case that union types do not satisfy
+
+- advanced types
+  - generics
+  - unions
+    - motivation is algebraic data types from functional languages
+    - type could be a number of different types
+  - intersections
+  - discriminated unions
+  - higher-kinded
+    - conditional
+    - mapped types
+      - T[K]
+      - keyof
+      - in

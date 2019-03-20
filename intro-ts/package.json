@@ -1,0 +1,8 @@
+{
+  "name": "intro-ts",
+  "version": "1.0.0",
+  "description": "intro to ts",
+  "dependencies": {
+    "typescript": "^3.3.3333"
+  }
+}
